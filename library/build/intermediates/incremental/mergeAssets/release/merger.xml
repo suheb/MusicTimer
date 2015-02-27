@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/home/suheb/android-studio-projects/MusicTimer/library/src/main/assets"><file name="Roboto-Light.ttf" path="/home/suheb/android-studio-projects/MusicTimer/library/src/main/assets/Roboto-Light.ttf"/></source></dataSet><dataSet config="release"><source path="/home/suheb/android-studio-projects/MusicTimer/library/src/release/assets"/></dataSet></merger>

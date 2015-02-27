@@ -1,0 +1,114 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_start" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:orientation="vertical"
+        android:paddingRight="20dp" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" >
+
+            <net.simonvt.numberpicker.NumberPicker
+                android:id="@+id/hourPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/colon"
+                android:textSize="30sp" />
+
+            <net.simonvt.numberpicker.NumberPicker
+                android:id="@+id/minutePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/colon"
+                android:textSize="30sp" />
+
+            <net.simonvt.numberpicker.NumberPicker
+                android:id="@+id/secondPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp" >
+
+            <Button
+                android:id="@+id/startButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/start"
+                android:textSize="23sp"
+                android:background="@drawable/bg_trans_button" />
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="1dp"
+	            android:layout_height="35dp"
+	            android:layout_margin="5dp"
+	            android:scaleType="fitXY"
+                android:src="@drawable/button_divider"
+                android:contentDescription="@string/colon" />
+
+            <Button
+                android:id="@+id/resetButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/reset"
+                android:textSize="23sp"
+                android:background="@drawable/bg_trans_button" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:paddingRight="10dp" >
+
+            <TextView
+                android:id="@+id/sensText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/sensitivity"
+                android:textSize="16sp" />
+
+            <CheckBox
+                android:id="@+id/sensorCheckBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="@string/sensor" />
+
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/sensitivity"
+            android:max="10"
+            android:thumb="@drawable/apptheme_scrubber_control_selector_holo_light"
+            android:progressDrawable="@drawable/apptheme_scrubber_progress_horizontal_holo_light" />
+
+    </LinearLayout>
+
+</ScrollView><!-- From: file:/home/suheb/android-studio-projects/MusicTimer/musicTimer/src/main/res/layout/fragment_start.xml -->

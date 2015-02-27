@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="bloodred">#980002</color>
+    <color name="lightgrey">#dddddc</color>
+    <color name="darkgrey">#535353</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="yellow">#edce01</color>
+
+</resources>
