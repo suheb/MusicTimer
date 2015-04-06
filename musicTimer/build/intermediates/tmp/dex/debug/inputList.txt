@@ -1,6 +1,0 @@
-/home/suheb/android-studio-projects/MusicTimer/musicTimer/build/intermediates/classes/debug
-/home/suheb/android-studio-projects/MusicTimer/musicTimer/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-50ac3778651bcde9788170b6ab6bef7f5efa92c2.jar
-/home/suheb/android-studio-projects/MusicTimer/musicTimer/build/intermediates/pre-dexed/debug/classes-59d37c3641ce8f8c39ab48ce5f6ea6c58c939889.jar
-/home/suheb/android-studio-projects/MusicTimer/musicTimer/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-815048174b490d1eb3e42e04478750ece676a7e5.jar
-/home/suheb/android-studio-projects/MusicTimer/musicTimer/build/intermediates/pre-dexed/debug/classes-c7bc2a5c83e44c305cc4dc7fdc4b390104515ff9.jar
-/home/suheb/android-studio-projects/MusicTimer/musicTimer/build/intermediates/pre-dexed/debug/classes-29c85cc4de2f2eb2dd5df1031c6c68e2c2e3d2b9.jar

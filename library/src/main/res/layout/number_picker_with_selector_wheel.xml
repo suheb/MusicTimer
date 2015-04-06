@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
 **
 ** Copyright 2012, The Android Open Source Project
 **
@@ -19,14 +18,15 @@
 
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <view class="net.simonvt.numberpicker.NumberPicker$CustomEditText"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="?android:attr/textColorPrimary"
+    <view
         android:id="@+id/np__numberpicker_input"
+        class="net.simonvt.numberpicker.NumberPicker$CustomEditText"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="@null"
         android:gravity="center"
         android:singleLine="true"
-        android:background="@null" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="?android:attr/textColorPrimary" />
 
 </merge>

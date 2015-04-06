@@ -12,5 +12,6 @@
     <string name="sensor">Use Sensor</string>
     <string name="colon">:</string>
     <string name="timer_msg">Oops, please select some non-zero duration for timer.</string>
+    <string name="stop_msg">Turning off music...</string>
 
 </resources>

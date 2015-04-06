@@ -648,11 +648,12 @@ containing a value of this type.
         public static final int sensor=0x7f0b0026;
         public static final int start=0x7f0b0027;
         public static final int stop=0x7f0b0028;
-        public static final int store_picture_message=0x7f0b0029;
-        public static final int store_picture_title=0x7f0b002a;
-        public static final int timer=0x7f0b002b;
-        public static final int timer_msg=0x7f0b002c;
-        public static final int wallet_buy_button_place_holder=0x7f0b002d;
+        public static final int stop_msg=0x7f0b0029;
+        public static final int store_picture_message=0x7f0b002a;
+        public static final int store_picture_title=0x7f0b002b;
+        public static final int timer=0x7f0b002c;
+        public static final int timer_msg=0x7f0b002d;
+        public static final int wallet_buy_button_place_holder=0x7f0b002e;
     }
     public static final class style {
         /** 

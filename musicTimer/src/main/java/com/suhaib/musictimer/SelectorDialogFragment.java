@@ -1,7 +1,5 @@
 package com.suhaib.musictimer;
 
-import java.util.List;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -19,6 +17,8 @@ import android.widget.ListView;
 import com.haloappstudio.musictimer.R;
 import com.suhaib.musictimer.utils.CustomListAdapter;
 import com.suhaib.musictimer.utils.Utils;
+
+import java.util.List;
 
 public class SelectorDialogFragment extends DialogFragment {
 	private List<ResolveInfo> mPlayerList;

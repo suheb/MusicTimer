@@ -28,7 +28,7 @@
         <!-- @hide The layout of the number picker. -->
         <attr name="internalLayout" format="reference" />
         <!-- @hide The drawable for pressed virtual (increment/decrement) buttons. -->
-        <attr name="virtualButtonPressedDrawable" format="reference"/>
+        <attr name="virtualButtonPressedDrawable" format="reference" />
     </declare-styleable>
 
     <style name="NPWidget">

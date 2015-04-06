@@ -20,12 +20,11 @@ import com.suhaib.musictimer.utils.Utils;
 
 public class MainActivity extends FragmentActivity {
 	
-	private Fragment mFragment;
-	private AdView mAdView;
-	
 	private final String AD_UNIT_ID = "ca-app-pub-1187028475051204/8008072575";
-	
-	@Override
+    private Fragment mFragment;
+    private AdView mAdView;
+
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
@@ -59,8 +58,8 @@ public class MainActivity extends FragmentActivity {
 	        }
 			
 	        // Create a new Fragment to be placed in the activity layout
-			if(TimerService.mServiceFlag)
-				mFragment = new TimerFragment();
+            if (TimerService.SERVICE_FLAG)
+                mFragment = new TimerFragment();
 			else
 				mFragment = new StartFragment();
 			

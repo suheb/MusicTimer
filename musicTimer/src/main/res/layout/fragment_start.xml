@@ -1,6 +1,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@drawable/bg_start" >
 
     <LinearLayout
@@ -54,27 +54,27 @@
                 android:id="@+id/startButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/bg_trans_button"
                 android:text="@string/start"
-                android:textSize="23sp"
-                android:background="@drawable/bg_trans_button" />
+                android:textSize="23sp" />
 
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="1dp"
 	            android:layout_height="35dp"
 	            android:layout_margin="5dp"
-	            android:scaleType="fitXY"
-                android:src="@drawable/button_divider"
-                android:contentDescription="@string/colon" />
+                android:contentDescription="@string/colon"
+                android:scaleType="fitXY"
+                android:src="@drawable/button_divider" />
 
             <Button
                 android:id="@+id/resetButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:background="@drawable/bg_trans_button"
                 android:text="@string/reset"
-                android:textSize="23sp"
-                android:background="@drawable/bg_trans_button" />
+                android:textSize="23sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -106,8 +106,8 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/sensitivity"
             android:max="10"
-            android:thumb="@drawable/apptheme_scrubber_control_selector_holo_light"
-            android:progressDrawable="@drawable/apptheme_scrubber_progress_horizontal_holo_light" />
+            android:progressDrawable="@drawable/apptheme_scrubber_progress_horizontal_holo_light"
+            android:thumb="@drawable/apptheme_scrubber_control_selector_holo_light" />
 
     </LinearLayout>
 

@@ -1,6 +1,5 @@
 package com.suhaib.musictimer;
 
-import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -21,7 +20,9 @@ import com.suhaib.musictimer.utils.Utils;
 
 public class TimerService extends Service {
 
-	private NotificationCompat.Builder mBuilder;
+    public static boolean SERVICE_FLAG;
+    private final int mId = 1;
+    private NotificationCompat.Builder mBuilder;
 	private NotificationManager mNotificationManager;
 	private AudioManager mAudioManager;
 	private CountDownTimer mMusicTimer;
@@ -35,74 +36,11 @@ public class TimerService extends Service {
 	private boolean mSensorFlag = false;
 	private Intent mUpdateIntent;
 
-	private final int mId = 1;
-
-	public static boolean mServiceFlag;
-
-	private String formatTime(long time) {
-		int hr, min, sec, itime;
-		itime = (int) time;
-		String formattedTime = "";
-		hr = itime / 3600;
-		min = (itime % 3600) / 60;
-		sec = (itime % 3600) % 60;
-		if (hr < 10 && hr != 0) {
-			formattedTime = formattedTime.concat("0" + Integer.toString(hr)
-					+ ":");
-		} else if (hr != 0) {
-			formattedTime = formattedTime.concat(Integer.toString(hr) + ":");
-		}
-		if (min < 10 && min != 0) {
-			formattedTime = formattedTime.concat("0" + Integer.toString(min)
-					+ ":");
-		} else if (min != 0) {
-			formattedTime = formattedTime.concat(Integer.toString(min) + ":");
-		}
-		if (sec < 10) {
-			formattedTime = formattedTime.concat("0" + Integer.toString(sec));
-		} else {
-			formattedTime = formattedTime.concat(Integer.toString(sec));
-		}
-
-		return formattedTime;
-	}
-
-	private void stopMusic() {
-
-		mAudioManager = (AudioManager) this
-				.getSystemService(Context.AUDIO_SERVICE);
-		final long duration = mAudioManager
-				.getStreamVolume(AudioManager.STREAM_MUSIC) * 1000;
-		new CountDownTimer(duration, 2000) {
-			public void onTick(long millisUntilFinished) {
-				mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC,
-						(int) millisUntilFinished / 1000, 0);
-			}
-
-			public void onFinish() {
-				int result = mAudioManager.requestAudioFocus(
-						new AudioManager.OnAudioFocusChangeListener() {
-							@Override
-							public void onAudioFocusChange(int arg0) {
-								// Do nothing
-							}
-						}, AudioManager.STREAM_MUSIC,
-						AudioManager.AUDIOFOCUS_GAIN);
-				String processName = Utils.getAppPrefs(getApplication(), "defaultplayerprocess", "com.google.android.music.ui");
-				Utils.removeTask(getApplication(), processName, 0);
-				if (result == AudioManager.AUDIOFOCUS_GAIN) {
-					mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC,
-							(int) duration / 1000, 0);
-				}
-			}
-		}.start();
-	}
-
 	@Override
 	public void onCreate() {
-		
-		mServiceFlag = true;
-		Intent dismissIntent = new Intent(Utils.ACTION_DISMISS_NOTIFICATION);
+
+        SERVICE_FLAG = true;
+        Intent dismissIntent = new Intent(Utils.ACTION_DISMISS_NOTIFICATION);
 		dismissIntent.putExtra("mId", mId);
 		PendingIntent piDismiss = PendingIntent.getBroadcast(this, 0,
 				dismissIntent, PendingIntent.FLAG_CANCEL_CURRENT);
@@ -154,7 +92,6 @@ public class TimerService extends Service {
 
 			public void onFinish() {
 				stopMusic();
-				stopSelf();
 			}
 		};
 		mMusicTimer.start();
@@ -196,7 +133,6 @@ public class TimerService extends Service {
 
 			public void onFinish() {
 				stopMusic();
-				stopSelf();
 			}
 		};
 		
@@ -223,6 +159,72 @@ public class TimerService extends Service {
 		mUpdateIntent.putExtra("timer_flag", true);
 		sendBroadcast(mUpdateIntent);
 		mNotificationManager.cancel(mId);
-		mServiceFlag = false;
-	}
+        SERVICE_FLAG = false;
+    }
+
+    private String formatTime(long time) {
+        int hr, min, sec, itime;
+        itime = (int) time;
+        String formattedTime = "";
+        hr = itime / 3600;
+        min = (itime % 3600) / 60;
+        sec = (itime % 3600) % 60;
+        if (hr < 10 && hr != 0) {
+            formattedTime = formattedTime.concat("0" + Integer.toString(hr)
+                    + ":");
+        } else if (hr != 0) {
+            formattedTime = formattedTime.concat(Integer.toString(hr) + ":");
+        }
+        if (min < 10 && min != 0) {
+            formattedTime = formattedTime.concat("0" + Integer.toString(min)
+                    + ":");
+        } else if (min != 0) {
+            formattedTime = formattedTime.concat(Integer.toString(min) + ":");
+        }
+        if (sec < 10) {
+            formattedTime = formattedTime.concat("0" + Integer.toString(sec));
+        } else {
+            formattedTime = formattedTime.concat(Integer.toString(sec));
+        }
+
+        return formattedTime;
+    }
+
+    private void stopMusic() {
+
+        mAudioManager = (AudioManager) this
+                .getSystemService(Context.AUDIO_SERVICE);
+        final long duration = mAudioManager
+                .getStreamVolume(AudioManager.STREAM_MUSIC) * 1000;
+        // Update notification
+        mBuilder.setContentText(getString(R.string.stop_msg)).setStyle(
+                new NotificationCompat.BigTextStyle()
+                        .bigText(getString(R.string.stop_msg)));
+        mNotificationManager.notify(mId, mBuilder.build());
+        new CountDownTimer(duration, 2000) {
+            public void onTick(long millisUntilFinished) {
+                mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC,
+                        (int) millisUntilFinished / 1000, 0);
+            }
+
+            public void onFinish() {
+                int result = mAudioManager.requestAudioFocus(
+                        new AudioManager.OnAudioFocusChangeListener() {
+                            @Override
+                            public void onAudioFocusChange(int arg0) {
+                                // Do nothing
+                            }
+                        }, AudioManager.STREAM_MUSIC,
+                        AudioManager.AUDIOFOCUS_GAIN);
+                String processName = Utils.getAppPrefs(getApplication(), "defaultplayerprocess", "com.google.android.music.ui");
+                Utils.removeTask(getApplication(), processName, 0);
+                if (result == AudioManager.AUDIOFOCUS_GAIN) {
+                    mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC,
+                            (int) duration / 1000, 0);
+                }
+
+                stopSelf();
+            }
+        }.start();
+    }
 }

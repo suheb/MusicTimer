@@ -1,6 +1,5 @@
 package com.suhaib.musictimer;
 
-import net.simonvt.numberpicker.NumberPicker;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -17,6 +16,8 @@ import android.widget.Toast;
 
 import com.haloappstudio.musictimer.R;
 import com.suhaib.musictimer.utils.Utils;
+
+import net.simonvt.numberpicker.NumberPicker;
 
 public class StartFragment extends Fragment {
 
@@ -115,8 +116,8 @@ public class StartFragment extends Fragment {
 							TimerService.class);
 					serviceIntent.putExtra("time", time);
 					if(getActivity().startService(serviceIntent) != null) {
-						TimerService.mServiceFlag = true;
-					}
+                        TimerService.SERVICE_FLAG = true;
+                    }
 					Fragment fragment = new TimerFragment();
 					Utils.changeFragment(fragment, getActivity());
 				} else {
