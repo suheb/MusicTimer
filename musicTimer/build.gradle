@@ -25,5 +25,7 @@ android {
 dependencies {
     compile project(':library')
     compile 'com.android.support:support-v4:25.0.0'
-    compile 'com.google.android.gms:play-services:9.6.0'
+    compile 'com.google.firebase:firebase-ads:9.6.0'
 }
+
+apply plugin: 'com.google.gms.google-services'
