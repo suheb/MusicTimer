@@ -200,7 +200,7 @@ public class StartFragment extends Fragment {
                     TimerService.class);
             serviceIntent.putExtra("time", time);
             if (getActivity().startService(serviceIntent) != null) {
-                TimerService.mServiceFlag = true;
+                TimerService.SERVICE_FLAG = true;
             }
             Fragment fragment = new TimerFragment();
             Utils.changeFragment(fragment, getActivity());

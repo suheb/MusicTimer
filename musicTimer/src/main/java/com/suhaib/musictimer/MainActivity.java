@@ -80,7 +80,7 @@ public class MainActivity extends FragmentActivity {
                 return;
             }
             // Create a new Fragment to be placed in the activity layout
-            if (TimerService.mServiceFlag)
+            if (TimerService.SERVICE_FLAG)
                 mFragment = new TimerFragment();
             else
                 mFragment = new StartFragment();

@@ -100,7 +100,7 @@ public class TimerFragment extends Fragment {
                 mTimerBar.setMax(maxTime);
                 mTimerBar.setProgress(currentTime);
                 if (intent.getBooleanExtra("timer_flag", false)
-                        || !TimerService.mServiceFlag) {
+                        || !TimerService.SERVICE_FLAG) {
                     Utils.changeFragment(mFragment, getActivity());
                 }
             }
@@ -112,7 +112,7 @@ public class TimerFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        if (!TimerService.mServiceFlag) {
+        if (!TimerService.SERVICE_FLAG) {
             Utils.changeFragment(mFragment, getActivity());
         }
         mIntentFilter = new IntentFilter(Utils.ACTION_UPDATE_TIMER);
@@ -139,7 +139,7 @@ public class TimerFragment extends Fragment {
         Intent serviceIntent = new Intent(getActivity(),
                 TimerService.class);
         if (getActivity().stopService(serviceIntent) == true) {
-            TimerService.mServiceFlag = false;
+            TimerService.SERVICE_FLAG = false;
         }
         Utils.changeFragment(mFragment, getActivity());
     }

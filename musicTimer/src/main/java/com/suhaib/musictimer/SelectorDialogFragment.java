@@ -39,7 +39,7 @@ public class SelectorDialogFragment extends DialogFragment {
 
 		CustomListAdapter adapter = new CustomListAdapter(getActivity(),
 				packageManager, mPlayerList);
-		mListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+		mListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 		mListView.setAdapter(adapter);
 		mListView.setOnItemClickListener(new OnItemClickListener() {
 

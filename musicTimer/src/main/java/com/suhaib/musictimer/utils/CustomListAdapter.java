@@ -15,36 +15,36 @@ import com.haloappstudio.musictimer.R;
 
 import java.util.List;
 
-public class CustomListAdapter extends BaseAdapter {
+public class CustomListAdapter extends BaseAdapter{
 
-    private Context mContext;
-    private List<ResolveInfo> mAppItem;
-    private PackageManager mPackageManager;
+	private Context mContext;
+	private List<ResolveInfo> mAppItem;
+	private PackageManager mPackageManager;
 
-    public CustomListAdapter(Context mContext, PackageManager mPackageManager, List<ResolveInfo> mAppItem) {
-        this.mContext = mContext;
-        this.mAppItem = mAppItem;
-        this.mPackageManager = mPackageManager;
-    }
+	public CustomListAdapter(Context mContext, PackageManager mPackageManager, List<ResolveInfo> mAppItem){
+		this.mContext = mContext;
+		this.mAppItem = mAppItem;
+		this.mPackageManager = mPackageManager;
+	}
 
-    @Override
-    public int getCount() {
-        return mAppItem.size();
-    }
+	@Override
+	public int getCount() {
+		return mAppItem.size();
+	}
 
-    @Override
-    public Object getItem(int position) {
-        return mAppItem.get(position);
-    }
+	@Override
+	public Object getItem(int position) {
+		return mAppItem.get(position);
+	}
 
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
+	@Override
+	public long getItemId(int position) {
+		return position;
+	}
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		if (convertView == null) {
             LayoutInflater mInflater = (LayoutInflater)
                     mContext.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
             convertView = mInflater.inflate(R.layout.app_list_item, null);
@@ -56,6 +56,5 @@ public class CustomListAdapter extends BaseAdapter {
         imgIcon.setImageDrawable(mAppItem.get(position).loadIcon(mPackageManager));
         txtTitle.setText(mAppItem.get(position).loadLabel(mPackageManager));
         return convertView;
-    }
-
+	}
 }
