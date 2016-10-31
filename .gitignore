@@ -45,3 +45,6 @@ captures/
 
 #Firebase config
 google-services.json
+
+#Config strings
+config.xml
