@@ -20,7 +20,6 @@ import com.suhaib.musictimer.utils.Utils;
 public class MainActivity extends FragmentActivity {
 
     private Fragment mFragment;
-    private AdView mAdView;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -30,15 +29,6 @@ public class MainActivity extends FragmentActivity {
             ActionBar actionBar = getActionBar();
             actionBar.setIcon(R.drawable.ic_action_bar);
         }
-        MobileAds.initialize(getApplicationContext(), getString(R.string.admob_app_id));
-
-        // Create banner ad
-        mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(getString(R.string.oneplus3_device_id))
-                .build();
-        mAdView.loadAd(adRequest);
-
         showFragment(savedInstanceState);
     }
 

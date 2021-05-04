@@ -39,20 +39,6 @@ public class StartFragment extends Fragment {
         Typeface font = Typeface.createFromAsset(getActivity().getAssets(),
                 "fonts/Roboto-Light.ttf");
 
-        // Create interstitial ad
-        mInterstitialAd = new InterstitialAd(getActivity());
-        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_ad_unit_id));
-
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                requestNewInterstitial();
-                startTimerService();
-            }
-        });
-
-        requestNewInterstitial();
-
         // Hour picker
         mHourPicker = (NumberPicker) rootView.findViewById(R.id.hourPicker);
         mHourPicker.setTypeface(font);
@@ -171,15 +157,6 @@ public class StartFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
 
-    }
-
-    private void requestNewInterstitial() {
-        if (!mInterstitialAd.isLoading() && !mInterstitialAd.isLoaded()) {
-            AdRequest adRequest = new AdRequest.Builder()
-                    .addTestDevice(getString(R.string.oneplus3_device_id))
-                    .build();
-            mInterstitialAd.loadAd(adRequest);
-        }
     }
 
     private void startTimerService() {

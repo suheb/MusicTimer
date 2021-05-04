@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MusicTimer.iml" filepath="$PROJECT_DIR$/MusicTimer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/musicTimer/musicTimer.iml" filepath="$PROJECT_DIR$/musicTimer/musicTimer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/MusicTimer.iml" filepath="$PROJECT_DIR$/.idea/MusicTimer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/MusicTimer.library.iml" filepath="$PROJECT_DIR$/.idea/modules/library/MusicTimer.library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/musicTimer/MusicTimer.musicTimer.iml" filepath="$PROJECT_DIR$/.idea/modules/musicTimer/MusicTimer.musicTimer.iml" />
     </modules>
   </component>
 </project>

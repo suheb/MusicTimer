@@ -28,4 +28,3 @@ dependencies {
     compile 'com.google.firebase:firebase-ads:9.6.0'
 }
 
-apply plugin: 'com.google.gms.google-services'

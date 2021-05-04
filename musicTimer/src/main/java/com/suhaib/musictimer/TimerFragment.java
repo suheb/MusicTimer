@@ -41,20 +41,6 @@ public class TimerFragment extends Fragment {
         mStopText = (TextView) rootView.findViewById(R.id.stopText);
         mTimerText = (TextView) rootView.findViewById(R.id.timerText);
 
-        // Create interstitial ad
-        mInterstitialAd = new InterstitialAd(getActivity());
-        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_ad_unit_id));
-
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                requestNewInterstitial();
-                stopTimerService();
-            }
-        });
-
-        requestNewInterstitial();
-
         // Custom font
         Typeface font = Typeface.createFromAsset(getActivity().getAssets(),
                 "fonts/Roboto-Light.ttf");
@@ -123,16 +109,6 @@ public class TimerFragment extends Fragment {
     public void onPause() {
         super.onPause();
         getActivity().unregisterReceiver(mTimerRecevier);
-    }
-
-    private void requestNewInterstitial() {
-        if (!mInterstitialAd.isLoading() && !mInterstitialAd.isLoaded()) {
-            AdRequest adRequest = new AdRequest.Builder()
-                    .addTestDevice(getString(R.string.oneplus3_device_id))
-                    .build();
-            mInterstitialAd.loadAd(adRequest);
-            Log.d("MAIN", "LOAD INTERSTITIAL AD");
-        }
     }
 
     private void stopTimerService() {
