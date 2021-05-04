@@ -103,13 +103,7 @@ public class StartFragment extends Fragment {
 
             @Override
             public void onClick(View view) {
-
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
-                    startTimerService();
-                }
-
+                startTimerService();
             }
         });
 
